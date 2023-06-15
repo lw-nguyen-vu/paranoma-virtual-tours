@@ -22,11 +22,39 @@
       .full-height {
         height: 100%;
       }
+
+      .menu {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        border: 1px solid #ccc;
+        padding: 10px;
+        z-index: 999;
+      }
+
+      .hidden {
+        display: none;
+      }
     </style>
   </head>
   <body>
     <input type="file" id="panoramaInput" accept="image/jpeg, image/png" />
-    <div class="full-height" id="panorama"></div>
+    <div class="full-height" id="panorama">
+      <div class="menu" id="contextMenu">
+        <ul>
+          <li>
+            <button onclick="handleOptionClick(1)">Add HotSpot Info</button>
+          </li>
+          <li>
+            <button onclick="handleOptionClick(2)">Add HotSpot Scene</button>
+          </li>
+        </ul>
+        <div id="inputContainer" class="hidden">
+          <input type="text" id="inputText" />
+          <button onclick="handleOK()">OK</button>
+        </div>
+      </div>
+    </div>
     <script src="js/index.js"></script>
   </body>
 </html>
